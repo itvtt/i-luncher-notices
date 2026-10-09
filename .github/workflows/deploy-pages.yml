@@ -1,0 +1,49 @@
+name: Deploy public launcher notices
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'notices.json'
+      - '.github/workflows/deploy-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: launcher-notices-pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      # Rebuild from latest main on every retry, including failed-job reruns.
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/configure-pages@v5
+      - name: Stage only the public notice feed
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m json.tool notices.json > /dev/null
+          mkdir -- "$RUNNER_TEMP/notice-site"
+          cp -- notices.json "$RUNNER_TEMP/notice-site/notices.json"
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          name: github-pages-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/notice-site
+      - name: Deploy notice feed
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages-${{ github.run_attempt }}
