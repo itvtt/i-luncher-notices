@@ -1,0 +1,88 @@
+// 기본 목록: 모든 i-luncher(일반 · 마스터)의 스토어에 보이는 앱. 여기서 고쳐 main 에 저장하면 런처가 다음 시작 · 새로고침 때 반영합니다 (런처 릴리스 필요 없음).
+// 앱 더하기: 항목 하나를 복사해 고치고, 스크린샷을 basic-media/ 에 올려 screenshots 에 파일 이름을 적습니다 (앱마다 3장 이상).
+// repository = 저장소 이름만 (호스트 · 소유자는 런처 저장소와 같게). 그 저장소는 공개여야 일반 사용자가 받습니다.
+// installName = 설치 폴더 이름 (릴리스 파일 <installName>-win-x64.zip). order = 순서. author = 앱 페이지의 개발자. details = 앱 페이지의 긴 설명, 줄바꿈은 \n.
+// 마스터는 이 목록 + API 서버의 서버 목록 (같은 앱이면 서버 목록 값). 사용자가 스토어에서 지운 앱은 본인이 다시 추가할 때까지 그 사용자에게 나오지 않습니다.
+{
+  "schemaVersion": 1,
+  "apps": [
+    {
+      "id": "deskcal",
+      "author": "jy01.ahn",
+      "name": "DeskCal",
+      "repository": "DeskCal",
+      "category": "일정",
+      "description": "바탕화면 달력 • 일정 • 교대근무",
+      "details": "바탕화면에 늘 떠 있는 달력입니다. 창을 따로 열지 않아도 이번 달 일정과 4조 교대근무를 바로 봅니다.\n\n주요 기능\n• 월간 · 주간 보기, 오늘 날짜가 그려진 작업 표시줄 · 트레이 아이콘\n• 일정 추가 · 수정 · 검색\n• 4조(A · B · C · D) 교대근무: 사업장을 고르면 조별 근무(D · S · G · 휴)를 날짜 칸에 표시\n• 라이트 · 다크 테마, 화면 맨 앞에 고정하거나 바탕화면처럼 맨 뒤에 두기\n\n이럴 때 좋아요\n• 교대 근무표를 따로 찾지 않고 바탕화면에서 바로 확인할 때\n• 회의 · 휴가 · 점검 일정을 한눈에 보고 싶을 때\n\n일정은 이 PC 에 저장되어 업데이트하거나 다시 설치해도 그대로 남습니다.",
+      "screenshots": [ "deskcal-1.png", "deskcal-2.png", "deskcal-3.png" ],
+      "installName": "DeskCal",
+      "order": 10
+    },
+    {
+      "id": "compare",
+      "author": "jy01.ahn",
+      "name": "Compare",
+      "repository": "Compare",
+      "category": "파일",
+      "description": "폴더 • 파일 • 텍스트 비교 • 공유",
+      "details": "두 폴더, 두 파일 또는 두 글이 어디가 다른지 나란히 보여 줍니다. 백업이 제대로 됐는지, 설정 파일에서 무엇이 바뀌었는지 확인할 때 씁니다.\n\n주요 기능\n• 폴더 비교: A에만 · B에만 · 다른 파일 · 같은 파일로 나눠 트리로 표시\n• 파일 비교: 바뀐 줄과 바뀐 글자를 색으로 표시, 좌우를 바로 고쳐 저장\n• 텍스트 비교: 왼쪽 위 [폴더 | 텍스트]에서 텍스트를 고르고 좌우에 붙여 넣은 뒤 비교 (Ctrl+Enter)\n• 공백 · 줄바꿈 무시, 고른 파일을 A → B 로 덮어쓰기, 비교 보고서 저장\n• 공유: 보이는 비교 결과를 File Shared 링크로 만들어 다른 사람에게 전달\n\n공유하려면 같은 PC 에서 File Shared 가 실행 중이어야 합니다.",
+      "screenshots": [ "compare-1.png", "compare-2.png", "compare-3.png" ],
+      "installName": "Compare",
+      "order": 30,
+      "formerIds": [ "folder-compare" ],
+      "formerInstallNames": [ "FolderCompareWPF" ]
+    },
+    {
+      "id": "fastcopy",
+      "author": "jy01.ahn",
+      "name": "FastCopy",
+      "repository": "FastCopy",
+      "category": "파일",
+      "description": "많은 파일 빠른 복사 • 이동",
+      "details": "많은 파일과 큰 폴더를 탐색기보다 빠르고 안전하게 복사 · 이동합니다. 원본을 고르고 대상 폴더를 정한 뒤 [복사 시작] 또는 [이동]만 누르면 됩니다.\n\n주요 기능\n• 여러 파일을 동시에 전송 (동시 작업 1 · 2 · 4 · 8 · 16개)\n• 전송 속도 · 초당 파일 수 · 남은 시간 · 작업별 진행 표시\n• 같은 이름의 파일은 건너뜀, 일시정지 · 계속 · 취소\n• 다른 드라이브로 이동할 때는 내용을 비교(SHA-256)한 뒤에만 원본을 지움\n• 끌어 놓기 · 경로 붙여 넣기, 네트워크 경로(UNC), 전송 기록 보기\n\n이럴 때 좋아요\n• 수만 개 파일을 백업하거나 서버 폴더를 옮길 때\n• 탐색기 복사가 느리거나 중간에 멈출 때",
+      "screenshots": [ "fastcopy-1.png", "fastcopy-2.png", "fastcopy-3.png" ],
+      "installName": "FastCopy",
+      "order": 40,
+      "formerIds": [ "swiftcopy" ],
+      "formerInstallNames": [ "SwiftCopy" ]
+    },
+    {
+      "id": "diskscan",
+      "author": "jy01.ahn",
+      "name": "DiskScan",
+      "repository": "DiskScan",
+      "category": "파일",
+      "description": "디스크 용량 분석 • 파일 검색 • 중복 찾기",
+      "details": "디스크가 왜 꽉 찼는지 찾아 줍니다. 드라이브나 폴더를 고르고 [분석]을 누르면 어떤 폴더 · 파일이 공간을 차지하는지 바로 보입니다.\n\n주요 기능\n• 용량순 폴더 트리, 큰 파일 목록, 파일 유형별 집계\n• 디스크 맵: 파일을 크기만큼의 칸으로 그려 큰 것을 한눈에\n• 파일 검색: 이름 · 내용(문서 · 엑셀 · PPT 포함)으로 찾기, AND · OR · 괄호 조합\n• 중복 찾기: 이름이 달라도 내용이 같은 파일을 찾아 골라서 휴지통으로\n• NTFS 드라이브는 고속 분석\n\n처음 실행할 때 한 번 관리자 승인이 필요합니다. 시스템 파일 · 보호 폴더는 검색과 삭제에서 빠집니다.",
+      "screenshots": [ "diskscan-1.png", "diskscan-2.png", "diskscan-3.png" ],
+      "installName": "DiskScan",
+      "order": 50,
+      "formerIds": [ "diskatlas" ],
+      "formerInstallNames": [ "DiskAtlas" ]
+    },
+    {
+      "id": "capture",
+      "author": "jy01.ahn",
+      "name": "Capture",
+      "repository": "Capture",
+      "category": "도구",
+      "description": "화면 캡처 • 스크롤 • GIF • 영상",
+      "details": "화면을 찍고, 길게 스크롤해 한 장으로 붙이고, GIF · 영상으로 녹화합니다. 찍은 그림은 바로 클립보드에 복사되고 File Shared 링크로 공유할 수 있습니다.\n\n주요 기능\n• 영역 · 창 · 전체 화면 캡처, 스크롤 캡처 (긴 웹 페이지 · 문서를 한 장으로)\n• GIF · 영상(MP4) 녹화\n• 편집: 사각형 · 화살표 · 펜 · 형광펜 · 글자 · 모자이크 · 자르기\n• 자동 저장(폴더 지정) 또는 편집 창에서 직접 저장, 저장한 캡처 목록\n• 단축키는 처음 설정에서 원하는 키로 (처음에는 없음), 트레이에 상주\n\n이럴 때 좋아요\n• 오류 화면이나 작업 순서를 찍어 바로 공유할 때\n• 긴 화면을 잘리지 않게 한 장으로 남길 때",
+      "screenshots": [ "capture-1.png", "capture-2.png", "capture-3.png" ],
+      "installName": "Capture",
+      "order": 80
+    },
+    {
+      "id": "memopad",
+      "author": "jy01.ahn",
+      "name": "MemoPad",
+      "repository": "MemoPad",
+      "category": "도구",
+      "description": "바탕화면 메모 • 그림 메모 • 알람 • 메모 관리기",
+      "details": "바탕화면에 붙여 두는 메모입니다. 정음 메모패드의 메모 기능을 옮겨, 쓰던 방식 그대로 쓸 수 있습니다.\n\n주요 기능\n• 메모: 글자 서식 · 표 · 그림 · 첨부 파일, 손으로 그리는 그림 메모\n• 알람: 정한 시각에 메모를 띄워 알림\n• 보안 메모, 투명도 · 항상 위/아래 · 접기\n• 메모 관리기: 폴더 · 휴지통 · 찾기, 바탕화면 메모 정렬\n• 정음 메모 가져오기, 한/영 오타 변환(F4), 날짜 · 시간 넣기(Ctrl+D · Ctrl+T), 인쇄 · 파일로 저장\n\n메모는 이 PC 에만 저장되고 네트워크를 쓰지 않습니다 (메모 주고받기 · 대화는 없음).",
+      "screenshots": [ "memopad-1.png", "memopad-2.png", "memopad-3.png" ],
+      "installName": "MemoPad",
+      "order": 90
+    }
+  ]
+}
